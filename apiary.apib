@@ -1,16 +1,52 @@
 FORMAT: 1A
 HOST: http://polls.apiblueprint.org/
 
-# chiptest1
+# Chip's Super Awesome API
 
 List all PoPs in a Metro
 
-## List PoPs [/pops]
+## Metros [/metros]
+
+### List all Metros [GET]
 
 + Response 200 (application/json)
 
-[
-    "ATL",
-    "LAX",
-    "BSN",
-]
+        [
+                {
+                    "metro_name":"Atlanta",
+                    "metro_id": 1
+                },
+                {
+                    "metro_name": "LosAngeles",
+                    "metro_id": 2
+                },
+                {
+                    "metro_name: "Boston",
+                    "metro_id": 3
+                }
+        ]
+
+## PoPs [/metros/{metro_id}]
+
++ Parameters
+    + metro_id: 1 (required, number) - ID of the Metro area
+
+### List PoPs in a Metro [GET]
+
++ Response 200 (application/json)
+
+        [
+            "metro_name": "Atlanta",
+            "metro_id": 1,
+            "pops": [
+                {
+                    "pop_name": "ATA"
+                    "pop_id": 1
+                },
+                {
+                    "pop_name": "ATB",
+                    "pop_id": 2
+                }
+            
+            ]
+        }
